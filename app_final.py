@@ -507,6 +507,9 @@ for index, row in cmap.iterrows():
     model_input_df = pd.DataFrame([model_input])
 
     prediction = model.predict(model_input_df)
+
+    prediction = np.expm1(prediction)
+
     predicted_damages.append(prediction[0])  # Store prediction in the predicted damages list
 
 # Add to predicted damage column in cmap
@@ -516,7 +519,7 @@ cmap["predicted_damage"] = predicted_damages
 cmap['geometry'] = cmap['geometry'].apply(wkt.loads)
 cmap_gdf = gpd.GeoDataFrame(cmap, geometry='geometry', crs="EPSG:4326")
 
-predicted_damages = np.expm1(predicted_damages)
+
 
 # Interactive map with spinner
 with st.spinner("Loading the map..."):
