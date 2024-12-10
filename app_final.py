@@ -10,8 +10,8 @@ st.set_page_config(page_icon=None, layout="wide")
 
 st.markdown("""
     <h1 style='text-align: center; color: black;'>🌪️ Welcome to the Natural Disaster Damage Prediction Tool! 🌪️</h1>
-    <h3 style='color: black;'> 🌟 Select a disaster type and enter the relevant details to get an estimate of the property damage.</h2>
-    <h3 style='color: black;'>📊 Simply input the attributes of the selected disaster below and click the button to predict</h2>
+    <h4 style='color: black;'> 🌟 Select a disaster type and enter the relevant details to get an estimate of the property damage.</h2>
+    <h4 style='color: black;'>📊 Simply input the attributes of the selected disaster below and click the button to predict</h2>
     """, unsafe_allow_html=True)
 
 # Load pre-trained Random Forest models
