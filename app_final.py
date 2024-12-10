@@ -368,8 +368,10 @@ if st.sidebar.button("Predict Property Damage 📊"):
         with st.spinner("Calculating predictions... Please wait."):
             predicted_damage = model.predict(input_data)
             transformed_damage = np.exp(predicted_damage[0])
-        st.subheader("Predicted Damage:")
-        st.markdown(f"<h2>${transformed_damage:,.2f}</h2>", unsafe_allow_html=True)
+        st.markdown("""
+            <h2 style='text-align: center; color: black;'>Predicted Damage:</h2>
+            <h2>${transformed_damage:,.2f}</h2>
+            """, unsafe_allow_html=True)
     except Exception as e:
         st.error(f"Error making prediction: {e}")
 else:
