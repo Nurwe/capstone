@@ -489,9 +489,7 @@ predicted_damages = []
 for key in input_data.keys():
     if key not in cmap.columns and key not in ['Density', 'GDP_per_capita']:
         cmap[key] = None  # Add missing dummy encoded columns
-
-predicted_values = model.predict(input_data) 
-predicted_damages = np.expm1(predicted_values)
+predicted_damages = np.expm1(predicted_damages)
 
 # Loop for cmap rows
 for index, row in cmap.iterrows():
