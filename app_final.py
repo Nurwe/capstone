@@ -10,8 +10,8 @@ st.set_page_config(page_icon=None, layout="wide")
 
 st.markdown("""
     <h1 style='text-align: center; color: black;'>🌪️ Welcome to the Natural Disaster Damage Prediction Tool! 🌪️</h1>
-    <h4 style='color: black;'> 🌊 Select a disaster type and enter the relevant details to get an estimate of the property damage.</h2>
-    <h4 style='color: black;'>📊 Simply input the attributes of the selected disaster and click the button to predict</h2>
+    <h4 style='color: black;'> 🌊 Select a disaster type and enter the relevant details to get an estimate of the property damage.</h4>
+    <h4 style='color: black;'>📊 Simply input the attributes of the selected disaster and click the button to predict</h4>
     """, unsafe_allow_html=True)
 
 # Load pre-trained Random Forest models
@@ -369,7 +369,7 @@ if st.sidebar.button("Predict Property Damage 📊"):
             predicted_damage = model.predict(input_data)
             transformed_damage = np.exp(predicted_damage[0])
         st.subheader("Predicted Damage:")
-        st.write(f"${transformed_damage:,.2f}")
+        st.markdown(f"<h2>${transformed_damage:,.2f}</h2>", unsafe_allow_html=True)
     except Exception as e:
         st.error(f"Error making prediction: {e}")
 else:
