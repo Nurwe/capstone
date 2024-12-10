@@ -485,9 +485,13 @@ elif disaster_type == "Tropical Depression":
 # Now we insert the user inputs in the cmap dataframe, which contains the Geo JSON information and features for each county.
 # The GDP per capita and Density must not change based on user inputs as they depend on the county
 predicted_damages = []
+
 for key in input_data.keys():
     if key not in cmap.columns and key not in ['Density', 'GDP_per_capita']:
         cmap[key] = None  # Add missing dummy encoded columns
+
+predicted_values = model.predict(input_data) 
+predicted_damages = np.expm1(predicted_values)
 
 # Loop for cmap rows
 for index, row in cmap.iterrows():
