@@ -489,7 +489,6 @@ predicted_damages = []
 for key in input_data.keys():
     if key not in cmap.columns and key not in ['Density', 'GDP_per_capita']:
         cmap[key] = None  # Add missing dummy encoded columns
-predicted_damages = np.expm1(predicted_damages)
 
 # Loop for cmap rows
 for index, row in cmap.iterrows():
@@ -517,6 +516,7 @@ cmap["predicted_damage"] = predicted_damages
 cmap['geometry'] = cmap['geometry'].apply(wkt.loads)
 cmap_gdf = gpd.GeoDataFrame(cmap, geometry='geometry', crs="EPSG:4326")
 
+predicted_damages = np.expm1(predicted_damages)
 
 # Interactive map with spinner
 with st.spinner("Loading the map..."):
