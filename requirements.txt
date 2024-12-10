@@ -50,3 +50,4 @@ urllib3==2.2.3
 watchdog==6.0.0
 xyzservices==2024.9.0
 geopandas
+xgboost
